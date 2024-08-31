@@ -43,4 +43,5 @@ def get_result(query):
 
 if __name__ == "__main__":
    
-    get_result(query="What is RAG-Token Model ?")
+    result=get_result(query="What is RAG-Token Model ?")
+    print(result)

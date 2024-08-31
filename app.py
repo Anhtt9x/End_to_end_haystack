@@ -18,12 +18,13 @@ templates = Jinja2Templates("templates")
 async def index(request:Request):
     return  templates.TemplateResponse("index.html", {"request": request})
 
-@app.post("/get_answers")
-async def get_answers(request:Request,question:str=Form(...)):
+@app.post("/get_answer")
+async def get_answer(request:Request,question:str=Form(...)):
     print(question)
     result = get_result(query=question)
     response_data = jsonable_encoder(json.dumps({"answer":result}))
     res = Response(response_data)
+    print(res)
     return res
 
 
