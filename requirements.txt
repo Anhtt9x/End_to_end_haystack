@@ -1,0 +1,8 @@
+pinecone-haystack
+haystack-ai
+fastapi
+uvicorn
+python-dotenv
+pypdf
+sentence-transformers>='2.3.0'
+-e .
