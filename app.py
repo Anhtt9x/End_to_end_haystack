@@ -20,4 +20,12 @@ async def index(request:Request):
 
 @app.post("/get_answers")
 async def get_answers(request:Request,question:str=Form(...)):
-    pass
+    print(question)
+    result = get_result(query=question)
+    response_data = jsonable_encoder(json.dumps({"answer":result}))
+    res = Response(response_data)
+    return res
+
+
+if __name__ == "__main__":
+    uvicorn.run("app:app",host="0.0.0.0",port=8000,reload=True)

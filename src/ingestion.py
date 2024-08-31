@@ -16,7 +16,7 @@ def ingestion(document_store):
 
     pipeline.add_component("converter",PyPDFToDocument())
     pipeline.add_component("splitter",DocumentSplitter(split_by="sentence",split_length=20))
-    pipeline.add_component("embedder",SentenceTransformersDocumentEmbedder())
+    pipeline.add_component("embedder",SentenceTransformersDocumentEmbedder(model="sentence-transformers/distiluse-base-multilingual-cased-v1"))
     pipeline.add_component("writer",DocumentWriter(document_store=document_store))
 
     pipeline.connect("converter","splitter")
